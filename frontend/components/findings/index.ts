@@ -1,0 +1,4 @@
+/**
+ * Findings components foundation.
+ */
+export {};

@@ -1,0 +1,4 @@
+/**
+ * Reports components foundation.
+ */
+export {};

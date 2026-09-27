@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/icon";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { StaggerContainer, StaggerItem } from "@/components/motion/Stagger";
+import GradientWaves from "@/components/background/GradientWaves";
 
 export default function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -35,56 +36,59 @@ export default function HomePage() {
       {/* ============================================================ */}
       {/* TOP NAVIGATION */}
       {/* ============================================================ */}
-      <header className="sticky top-0 z-40 w-full border-b border-slate-200/80 bg-white/80 backdrop-blur-md">
+      <header className="sticky top-0 z-40 w-full border-b border-[#1A1A1E] bg-[#0E0E11]/95 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
           {/* Logo / Wordmark */}
           <Link
             href="/"
             className="flex items-center gap-2.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 rounded-lg p-1"
           >
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500 to-sky-600 text-white shadow-sm transition-transform group-hover:scale-105">
-              <Icon icon={Shield01Icon} size="md" className="text-white" />
+            <div className="flex h-8 w-8 items-center justify-center text-white shrink-0 transition-transform group-hover:scale-105">
+              <Icon icon={Shield01Icon} size="lg" className="text-white" />
             </div>
             <div className="flex flex-col">
-              <span className="text-base font-bold tracking-tight text-slate-900">
-                ClaimShield <span className="text-sky-600 font-extrabold">AI</span>
-              </span>
-              <span className="text-[10px] text-slate-400 font-medium tracking-wide uppercase">
-                Investigation Suite
+              <span className="text-lg font-semibold tracking-tight text-white">
+                ClaimShield <span className="font-normal text-slate-300">AI</span>
               </span>
             </div>
           </Link>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-400">
             <a
               href="#product"
-              className="hover:text-slate-900 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 rounded-md px-1 py-0.5"
+              className="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 rounded-md px-1 py-0.5"
             >
               Product
             </a>
             <a
               href="#how-it-works"
-              className="hover:text-slate-900 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 rounded-md px-1 py-0.5"
+              className="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 rounded-md px-1 py-0.5"
             >
               How It Works
             </a>
             <a
               href="#capabilities"
-              className="hover:text-slate-900 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 rounded-md px-1 py-0.5"
+              className="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 rounded-md px-1 py-0.5"
             >
               Capabilities
             </a>
           </nav>
 
           {/* Right Action Buttons */}
-          <div className="hidden sm:flex items-center gap-3">
-            <Button variant="ghost" size="sm" asChild>
-              <Link href="/login">Log In</Link>
-            </Button>
-            <Button variant="primary" size="sm" asChild>
-              <Link href="/signup">Get Started</Link>
-            </Button>
+          <div className="hidden sm:flex items-center gap-4">
+            <Link 
+              href="/login" 
+              className="text-sm font-medium text-slate-400 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 rounded-md px-1 py-0.5"
+            >
+              Log In
+            </Link>
+            <Link 
+              href="/signup" 
+              className="inline-flex h-9 items-center justify-center rounded-lg bg-white px-4 py-2 text-sm font-semibold text-black shadow-sm hover:bg-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            >
+              Get Started
+            </Link>
           </div>
 
           {/* Mobile Menu Trigger */}
@@ -143,8 +147,34 @@ export default function HomePage() {
       {/* ============================================================ */}
       {/* HERO SECTION */}
       {/* ============================================================ */}
-      <section className="relative pt-16 pb-24 sm:pt-24 sm:pb-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative pt-24 pb-32 sm:pt-32 sm:pb-40">
+        {/* GradientWaves Background */}
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden="true">
+          <GradientWaves
+            horizonColor="#D0E3FF"
+            waveColor="#B9D5FF"
+            crestColor="#FFFFFF"
+            speed={0.2}
+            amplitude={1.8}
+            waveScale={0.8}
+            waveRatio={0.9}
+            swell={25}
+            turbulence={15}
+            tilt={1.11}
+            zoom={1.0}
+            height={5.5}
+            fogDepth={15}
+            detail="high"
+            brightness={0.9}
+            opacity={0.8}
+            mouseInteraction={true}
+            parallaxStrength={0.25}
+            grain={false}
+            grainIntensity={0}
+            className="w-full h-full"
+          />
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 pointer-events-auto">
           <FadeIn>
             {/* Mission Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200/80 text-sky-800 text-xs font-semibold mb-6 shadow-xs">
@@ -185,9 +215,9 @@ export default function HomePage() {
           {/* ============================================================ */}
           <FadeIn delay={0.15}>
             <div className="mt-16 sm:mt-20 max-w-4xl mx-auto" id="product">
-              <div className="rounded-2xl border border-slate-200/90 bg-white/90 p-5 sm:p-7 shadow-sm backdrop-blur-sm">
+              <div className="rounded-2xl border border-white/40 bg-white/10 p-5 sm:p-7 shadow-lg backdrop-blur-md">
                 <div className="text-center mb-6">
-                  <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                  <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
                     Investigation Flow
                   </span>
                   <h3 className="text-sm font-semibold text-slate-900 mt-1">
@@ -198,59 +228,59 @@ export default function HomePage() {
                 {/* Subtle Flow Stepper Diagram */}
                 <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 sm:gap-2 items-center">
                   {/* Step 1: Claim */}
-                  <div className="flex flex-col items-center text-center p-3 rounded-xl border border-slate-100 bg-slate-50/70">
+                  <div className="flex flex-col items-center text-center p-3 rounded-xl border border-white/50 bg-white/30 shadow-sm backdrop-blur-md">
                     <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-100 text-sky-700 mb-2">
                       <Icon icon={Folder01Icon} size="sm" />
                     </div>
                     <span className="text-xs font-semibold text-slate-900">1. Claim</span>
-                    <span className="text-[11px] text-slate-500 mt-0.5">Loss details</span>
+                    <span className="text-[11px] text-slate-700 mt-0.5">Loss details</span>
                   </div>
 
-                  <div className="hidden sm:flex justify-center text-slate-300">
+                  <div className="hidden sm:flex justify-center text-slate-400">
                     <Icon icon={ArrowRight01Icon} size="xs" />
                   </div>
 
                   {/* Step 2: Evidence */}
-                  <div className="flex flex-col items-center text-center p-3 rounded-xl border border-slate-100 bg-slate-50/70">
+                  <div className="flex flex-col items-center text-center p-3 rounded-xl border border-white/50 bg-white/30 shadow-sm backdrop-blur-md">
                     <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-100 text-sky-700 mb-2">
                       <Icon icon={Upload01Icon} size="sm" />
                     </div>
                     <span className="text-xs font-semibold text-slate-900">2. Evidence</span>
-                    <span className="text-[11px] text-slate-500 mt-0.5">Photos & bills</span>
+                    <span className="text-[11px] text-slate-700 mt-0.5">Photos & bills</span>
                   </div>
 
-                  <div className="hidden sm:flex justify-center text-slate-300">
+                  <div className="hidden sm:flex justify-center text-slate-400">
                     <Icon icon={ArrowRight01Icon} size="xs" />
                   </div>
 
                   {/* Step 3: Analysis */}
-                  <div className="flex flex-col items-center text-center p-3 rounded-xl border border-sky-100 bg-sky-50/60">
+                  <div className="flex flex-col items-center text-center p-3 rounded-xl border border-sky-200/50 bg-sky-100/30 shadow-sm backdrop-blur-md">
                     <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-600 text-white mb-2 shadow-xs">
                       <Icon icon={Search01Icon} size="sm" />
                     </div>
                     <span className="text-xs font-semibold text-sky-950">3. Analysis</span>
-                    <span className="text-[11px] text-sky-800/80 mt-0.5">Consistency check</span>
+                    <span className="text-[11px] text-sky-900 mt-0.5">Consistency check</span>
                   </div>
 
-                  <div className="hidden sm:flex justify-center text-slate-300">
+                  <div className="hidden sm:flex justify-center text-slate-400">
                     <Icon icon={ArrowRight01Icon} size="xs" />
                   </div>
 
                   {/* Step 4: Findings */}
-                  <div className="flex flex-col items-center text-center p-3 rounded-xl border border-slate-100 bg-slate-50/70">
+                  <div className="flex flex-col items-center text-center p-3 rounded-xl border border-white/50 bg-white/30 shadow-sm backdrop-blur-md">
                     <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-amber-100 text-amber-700 mb-2">
                       <Icon icon={File01Icon} size="sm" />
                     </div>
                     <span className="text-xs font-semibold text-slate-900">4. Findings</span>
-                    <span className="text-[11px] text-slate-500 mt-0.5">Explainable notes</span>
+                    <span className="text-[11px] text-slate-700 mt-0.5">Explainable notes</span>
                   </div>
 
-                  <div className="hidden sm:flex justify-center text-slate-300">
+                  <div className="hidden sm:flex justify-center text-slate-400">
                     <Icon icon={ArrowRight01Icon} size="xs" />
                   </div>
 
                   {/* Step 5: Human Decision */}
-                  <div className="flex flex-col items-center text-center p-3 rounded-xl border border-emerald-200 bg-emerald-50/60">
+                  <div className="flex flex-col items-center text-center p-3 rounded-xl border border-emerald-200/50 bg-emerald-100/30 shadow-sm backdrop-blur-md">
                     <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-600 text-white mb-2 shadow-xs">
                       <Icon icon={CheckmarkCircle01Icon} size="sm" />
                     </div>

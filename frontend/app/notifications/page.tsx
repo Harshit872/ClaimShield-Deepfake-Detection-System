@@ -12,6 +12,7 @@ import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { EmptyState } from "@/components/ui/empty-state";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const TYPE_ICONS: Record<NotificationType, any> = {
   INVESTIGATION: Search01Icon,
   CLAIM: Folder01Icon,

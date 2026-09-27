@@ -12,7 +12,7 @@ import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { EmptyState } from "@/components/ui/empty-state";
 
-const TYPE_ICONS: Record<NotificationType, React.ElementType> = {
+const TYPE_ICONS: Record<NotificationType, any> = {
   INVESTIGATION: Search01Icon,
   CLAIM: Folder01Icon,
   EVIDENCE: File01Icon,
